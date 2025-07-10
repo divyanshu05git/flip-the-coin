@@ -3,56 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link
-      rel="icon"
-      href="resources/favicon.ico"
-      type="image/x-icon"
-      sizes="96x96"
-    />
-
-    <title>Flip the coin | devChallenges.io</title>
-
-    <!--You are welcome to delete these styles or modify them in your own stylesheet -->
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
+      body{
+        background-color: lightblue;
         height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
-      .author-info {
-        font-size: 14px;
-        text-align: center;
-        margin-top: 16px;
-        color: rgb(55, 65, 81);
+      #b3{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
       }
 
-      .author-info a {
-        text-decoration: none;
+      #button{
+        height: 50px;
+        width: 100px;
+        background-color: blue;
+        color:white;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
       }
+
+      #button:hover {
+      background-color: darkblue;
+      transform: scale(1.05);
+      }
+
+      #button:active {
+      background-color: navy;
+      transform: scale(0.95);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+      }
+
     </style>
   </head>
-  <body>
-    <!-- 
-
-    Flip a Coin Game
-    Press the coin or the button to flip the coin
-    Head
-    Tail
-    Random
-  
-    -->
-
-    <div class="author-info">
-      Coded by <a href="#">Your Name Here</a> | Challenge by
-      <a href="https://www.devchallenges.io?ref=challenge" target="_blank"
-        >devChallenges.io</a
-      >.
+  <body> 
+    <div id="b1">
+    <h1>Flip the coin</h1>
     </div>
+
+    <div id="b2">
+      <h3>Press the coin or the button to flip the coin</h3>
+    </div>
+
+    <div id="b3">
+      <img id="coin" src="resources/heads.svg" onclick="flipTheCoin()">
+      <img style="margin-top: 20px;" src="resources/shadow.svg">
+    </div>
+
+    <button id="button" onclick="flipTheCoin()">Random</button>
+    
+    <script>
+      function flipTheCoin(){
+        const img=document.getElementById("coin")
+
+        const isHead=Math.random()<0.5;
+
+        img.src=isHead?"resources/heads.svg":"resources/tails.svg"
+      }
+    </script>
   </body>
+  
 </html>
